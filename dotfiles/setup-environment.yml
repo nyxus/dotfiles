@@ -1,0 +1,45 @@
+---
+- hosts: setup
+  remote_user: versloot
+  become: yes
+
+  tasks:
+  - name: Install git
+    apt:
+      name: git
+      state: latest
+
+  - name: Install vim
+    apt:
+      name: vim
+      state: latest
+
+  - name: Install htop
+    apt:
+      name: htop
+      state: latest
+
+  - name: Install tmux
+    apt:
+      name: tmux
+      state: latest
+      
+  - name: Install discus
+    apt:
+      name: discus
+      state: latest
+
+  - name: Install zsh
+    apt:
+      name: zsh
+      state: latest
+
+  - name: Install python pip
+    apt:
+      name: python-pip
+      state: latest
+
+  - name: Install ansible lint
+    apt:
+      name: ansible-lint
+      state: latest

@@ -59,6 +59,17 @@
       name: python3-pip
       state: latest
 
+  - name: Install curl
+    apt:
+      name: curl
+      state: latest
+
+  - name: Install cmake
+    apt:
+      name: cmake
+      state: latest
+
+
   - name: Install ansible lint
     apt:
       name: ansible-lint

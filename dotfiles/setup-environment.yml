@@ -23,7 +23,7 @@
     apt:
       name: tmux
       state: latest
-      
+
   - name: Install discus
     apt:
       name: discus
@@ -32,6 +32,16 @@
   - name: Install zsh
     apt:
       name: zsh
+      state: latest
+  
+  - name: Setup zsh, download antigen
+    get_url: 
+      url: https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh
+      dest: /home/versloot/dotfiles/antigen.zsh
+
+  - name: Setup zsh, install powerfonts
+    apt:
+      name: fonts-powerline
       state: latest
 
   - name: Install xclip
@@ -44,7 +54,22 @@
       name: python-pip
       state: latest
 
+  - name: Install python3 pip
+    apt:
+      name: python3-pip
+      state: latest
+
   - name: Install ansible lint
     apt:
       name: ansible-lint
       state: latest
+
+- hosts: setup
+  remote_user: versloot
+
+  tasks:
+  - name: Setup tmux, downlaod plugin manager
+    git: 
+      repo: 'https://github.com/tmux-plugins/tpm'
+      dest: /home/versloot/.tmux/plugins/tpm
+      

@@ -2,6 +2,7 @@
 #export ZSH=/home/versloot/.oh-my-zsh
 
 source $HOME/dotfiles/antigen.zsh
+source $HOME/.local_profile
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh

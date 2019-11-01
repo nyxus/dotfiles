@@ -34,6 +34,11 @@
       name: zsh
       state: latest
 
+  - name: Install xclip
+    apt:
+      name: xclip
+      state: latest
+
   - name: Install python pip
     apt:
       name: python-pip

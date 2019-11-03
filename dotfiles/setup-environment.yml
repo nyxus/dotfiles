@@ -10,6 +10,36 @@
       name: git
       state: latest
 
+  - name: Check if dotfiles are installed
+    become: no
+    stat:
+      path: ~/dotfiles
+    register: dotfiles
+
+  - debug: 
+      msg: "Dotfiles are already installed; skip cloning repo"
+    when: dotfiles.stat.exists and dotfiles.stat.isdir
+
+  - name: Clone dotfiles repo
+    become: no
+    command: git clone --bare https://github.com/nyxus/dotfiles.git $HOME/dotfiles
+    when: dotfiles.stat.exists == false
+
+  - name: Checkout dotfiles
+    become: no
+    command: git --git-dir=$HOME/dotfiles/ --work-tree=$HOME checkout -f
+    when: dotfiles.stat.exists == false
+
+  - name: Disable untracked files
+    become: no
+    command:  git --git-dir=$HOME/dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+    when: dotfiles.stat.exists == false
+
+  - name: Pull latest dotfiles
+    become: no
+    command:  git --git-dir=$HOME/dotfiles/ --work-tree=$HOME pull
+    when: dotfiles.stat.exists and dotfiles.stat.isdir
+
   - name: Install vim
     apt:
       name: vim
@@ -36,9 +66,10 @@
       state: latest
   
   - name: Setup zsh, download antigen
+    become: no
     get_url: 
       url: https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh
-      dest: /home/versloot/dotfiles/antigen.zsh
+      dest: ~/dotfiles/antigen.zsh
 
   - name: Setup zsh, install powerfonts
     apt:
@@ -76,9 +107,8 @@
       name: ansible-lint
       state: latest
 
-- hosts: setup
-  remote_user: versloot
-
+- hosts: localhost
+  become: yes
   tasks:
   - name: Setup tmux, downlaod plugin manager
     git: 

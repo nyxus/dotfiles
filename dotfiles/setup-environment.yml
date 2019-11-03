@@ -1,5 +1,6 @@
 ---
-- hosts: setup
+- name: Setup personal setup, programs and dotfiles
+  hosts: localhost
   remote_user: versloot
   become: yes
 

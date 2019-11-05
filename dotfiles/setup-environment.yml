@@ -114,6 +114,11 @@
       repo: 'https://github.com/tmux-plugins/tpm'
       dest: ~/.tmux/plugins/tpm
 
+  - name: Install i3-wm
+    apt:
+      name: i3-wm
+      state: latest
+
   - name: Install discus
     apt:
       name: discus
@@ -202,4 +207,5 @@
     when: sack.stat.exists == false
     args:
         chdir: "/home/versloot/Reposetories/sack"
+# Sack issue file permission: #1
 

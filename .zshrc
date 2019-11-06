@@ -3,6 +3,7 @@
 
 source $HOME/dotfiles/antigen.zsh
 source $HOME/.local_profile
+source $HOME/.common_profile
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -18,7 +19,7 @@ antigen bundle Tarrasch/zsh-autoenv
 antigen bundle Tarrasch/zsh-bd
 antigen bundle hcgraf/zsh-sudo
 antigen bundle web-search
-#antigen bundle HerringtonDarkholme/auto-fu
+#antigen bundle hchbaw/auto-fu.zsh
 antigen bundle oz/safe-paste
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle colored-man-pages

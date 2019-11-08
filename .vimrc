@@ -63,15 +63,25 @@ Plugin 'PProvost/vim-ps1'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'pearofducks/ansible-vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
+	
+" Remap ALT key: https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
 
+set timeout ttimeoutlen=50
 " Split movement
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-k> <C-W><Up>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <A-j> <C-W><C-J>
+nnoremap <A-k> <C-W><Up>
+nnoremap <A-l> <C-W><C-L>
+nnoremap <A-h> <C-W><C-H>
 
 " Use ag instead of ack
 if executable('ag')

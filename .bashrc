@@ -116,3 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 alias dotfiles='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+source $HOME/.local_profile
+export PATH="$PATH:/opt/"
+

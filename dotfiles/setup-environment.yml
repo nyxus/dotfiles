@@ -41,7 +41,7 @@
 
   - name: Install VIM
     apt:
-      name: vim
+      name: vim-gnome
       state: latest
 
   - name: Setup VIM vundle

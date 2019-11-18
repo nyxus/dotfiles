@@ -13,7 +13,6 @@ set shiftwidth=4
 set smarttab
 
 set cindent
-set spell spelllang=en_gb
 set splitbelow
 set splitright
 
@@ -65,6 +64,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'kergoth/vim-bitbake'
+Plugin 'reedes/vim-lexical'
+Plugin 'osamuaoki/vim-spell-under'
 
 call vundle#end()
 	
@@ -140,6 +142,11 @@ let g:ctrlp_custom_ignore = {
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 
+
+" Spell check
+let g:lexical#spell = 1         " 0=disabled, 1=enabled
+set spell spelllang=en_gb
+
 let g:highlightedyank_highlight_duration = 100
 if !exists('##TextYankPost')
   map y <Plug>(highlightedyank)
@@ -152,4 +159,5 @@ let g:solarized_termtrans = 1
 let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts = 1
 
+let g:spell_under='solarized'
 :silent! colorscheme solarized

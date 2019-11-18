@@ -77,3 +77,4 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+bindkey -M vicmd v edit-command-line

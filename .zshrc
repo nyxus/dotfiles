@@ -23,6 +23,7 @@ antigen bundle web-search
 antigen bundle oz/safe-paste
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle colored-man-pages
+antigen bundle agkozak/zsh-z
 
 # For SSH, starting ssh-agent is annoying
 

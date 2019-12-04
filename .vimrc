@@ -152,6 +152,11 @@ if !exists('##TextYankPost')
   map y <Plug>(highlightedyank)
 endif
 
+" File syntax settings
+au BufNewFile,BufRead *.bb setlocal ft=bitbake
+au BufNewFile,BufRead *.bbappend setlocal ft=bitbake
+
+" Theme settings
 syntax enable
 set background=dark
 let g:solarized_termcolors=256

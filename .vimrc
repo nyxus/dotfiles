@@ -67,6 +67,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kergoth/vim-bitbake'
 Plugin 'reedes/vim-lexical'
 Plugin 'osamuaoki/vim-spell-under'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 	

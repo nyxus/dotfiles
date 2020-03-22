@@ -182,6 +182,12 @@
       name: silversearcher-ag
       state: latest
 
+  - name: Install GDB cpp std symbols 
+    apt:
+      name: libstdc++6-8-dbg
+      state: latest
+
+
 - name: Setup personal setup, non root programs and dotfiles
   hosts: localhost
   become: no

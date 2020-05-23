@@ -68,6 +68,7 @@ Plugin 'kergoth/vim-bitbake'
 Plugin 'reedes/vim-lexical'
 Plugin 'osamuaoki/vim-spell-under'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 	
@@ -108,6 +109,7 @@ nnoremap <F6> :YcmCompleter FixIt<CR>
 nnoremap <F7> :YcmCompleter GetType<CR>
 nnoremap <F8> :MundoToggle<CR>
 nnoremap <LEADER>s :Ack! <C-R><C-W> <CR>
+nmap <F9> :TagbarToggle<CR>
 
 " Show and hide all characters
 "backup: set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<

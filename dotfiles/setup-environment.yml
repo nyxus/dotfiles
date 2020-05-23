@@ -41,7 +41,7 @@
 
   - name: Install VIM
     apt:
-      name: vim-gnome
+      name: neovim
       state: latest
 
   - name: Setup VIM vundle
@@ -91,13 +91,17 @@
       path: ~/Reposetories/YCM-Generator
     register: ycmconfig
 
-
   - name: Download YCM-config generator
     become: no
     git: 
       repo: 'https://github.com/rdnetto/YCM-Generator'
       dest: ~/Reposetories/YCM-Generator
     when: ycmconfig.stat.exists == false
+
+  - name: Install ctags
+    apt:
+      name: ctags
+      state: latest
 
   - name: Install htop
     apt:
@@ -108,11 +112,6 @@
     apt:
       name: tmux
       state: latest
-
-  - name: Setup tmux, downlaod plugin manager
-    git: 
-      repo: 'https://github.com/tmux-plugins/tpm'
-      dest: ~/.tmux/plugins/tpm
 
   - name: Install i3-wm
     apt:

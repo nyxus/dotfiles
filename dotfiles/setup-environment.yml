@@ -65,8 +65,14 @@
       state: latest
 
   - name: Install cmake
-    apt:
+    snap:
       name: cmake
+      state: latest
+      classic: yes
+
+  - name: Install ccmake
+    apt:
+      name: cmake-curses-gui
       state: latest
 
   - name: Install clang
@@ -102,6 +108,12 @@
     apt:
       name: ctags
       state: latest
+
+  - name: Install bear
+    apt:
+      name: bear
+      state: latest
+
 
   - name: Install htop
     apt:

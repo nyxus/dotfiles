@@ -8,7 +8,7 @@ set visualbell t_vb=    " disable terminal beep/bell
 
 set tabstop=4
 set softtabstop=0
-"set expandtab
+set expandtab
 set shiftwidth=4
 set smarttab
 
@@ -108,16 +108,16 @@ nnoremap <F4> :nohl<CR>
 nnoremap <F6> :YcmCompleter FixIt<CR>
 nnoremap <F7> :YcmCompleter GetType<CR>
 nnoremap <F8> :MundoToggle<CR>
-nnoremap <LEADER>s :Ack! <C-R><C-W> <CR>
 nmap <F9> :TagbarToggle<CR>
+nnoremap <LEADER>s :Ack! -a --cpp <C-R><C-W> <CR>
 
 " Show and hide all characters
 "backup: set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 set listchars=tab:▸·,eol:¬,trail:~,extends:>,precedes:<,nbsp:·
 set showbreak=↪\
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+"highlight NonText guifg=#4a4a59
+"highlight SpecialKey guifg=#4a4a59
 noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
 cnoremap <F5> <C-c>:set list!<CR>
@@ -126,6 +126,11 @@ cnoremap <F5> <C-c>:set list!<CR>
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-h>"
 let g:UltiSnipsJumpBackwardTrigger="<c-l>"
+
+
+" Doxygen settings
+let g:DoxygenToolkit_commentType = "Cpp"
+let g:DoxygenToolkit_BriefTag_post = ""
 
 if has('persistent_undo')      "check if your vim version supports it
   set undofile                 "turn on the feature
@@ -163,9 +168,12 @@ au BufNewFile,BufRead *.bbappend setlocal ft=bitbake
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
+"let g:solarized_termtrans = 1
 let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts = 1
 
+"let g:spell_under='pyte'
 let g:spell_under='solarized'
-:silent! colorscheme solarized
+":silent! colorscheme pyte
+":silent! colorscheme solarized
+colorscheme solarized

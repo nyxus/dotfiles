@@ -67,7 +67,7 @@
   - name: Install cmake
     snap:
       name: cmake
-      state: latest
+      state: present
       classic: yes
 
   - name: Install ccmake
@@ -82,7 +82,7 @@
 
   - name: Compile VIM ycm-core
     become: no
-    command: python3 install.py --clangd-completer
+    command: python3 install.py --clangd-completer --clang-completer
     args:
         chdir: '~/.vim/bundle/YouCompleteMe'
 

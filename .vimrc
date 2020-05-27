@@ -69,6 +69,7 @@ Plugin 'reedes/vim-lexical'
 Plugin 'osamuaoki/vim-spell-under'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'majutsushi/tagbar'
+Plugin 'rdnetto/YCM-Generator'
 
 call vundle#end()
 	

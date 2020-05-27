@@ -5,4 +5,4 @@ alias dfs='dotfiles'
 # Directories move 
 alias ydir='pwd | xclip'
 alias pdir='xclip -o'
-alias odir='xclip -o | cd'
+alias odir='cd `pdir`'

@@ -161,6 +161,24 @@ if !exists('##TextYankPost')
   map y <Plug>(highlightedyank)
 endif
 
+" YCM settings
+let g:ycm_filter_diagnostics = {                                      
+  \ "c": {                                                            
+  \   "regex": [                                                      
+  \     "-mno-fp-ret-in-387",                                         
+  \     "-mpreferred-stack-boundary=3",                               
+  \     "-mskip-rax-setup",                                           
+  \     "-mindirect-branch=thunk-extern",                             
+  \     "-mindirect-branch-register",                                 
+  \     "-fno-allow-store-data-races",                                
+  \     "-fplugin-arg-structleak_plugin-byref-all",                   
+  \     "-fno-var-tracking-assignments",                              
+  \     "-fconserve-stack",                                           
+  \     "-mrecord-mcount"                                             
+  \   ]                                                               
+  \ }                                                                 
+  \}    
+
 " File syntax settings
 au BufNewFile,BufRead *.bb setlocal ft=bitbake
 au BufNewFile,BufRead *.bbappend setlocal ft=bitbake

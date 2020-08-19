@@ -1,7 +1,6 @@
 export PATH="$PATH:$HOME/bin"
 
 alias dfs='dotfiles'
-alias ll='ll -hals'
 
 alias dfsu='dfs pull && ansible-playbook $HOME/dotfiles/setup-environment.yml --ask-become-pass'
 

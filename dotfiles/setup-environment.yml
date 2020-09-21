@@ -226,3 +226,22 @@
         chdir: "/home/versloot/Reposetories/sack"
 # Sack issue file permission: #1
 
+
+- name: Setup git hooks
+  hosts: localhost
+  become: no
+
+  tasks:
+  - name: Prevent local changes to push to the server, download
+    get_url:
+      url: https://gist.githubusercontent.com/hraban/10c7f72ba6ec55247f2d/raw/pre-commit
+      dest: ~/.git_template/hooks/pre-commit
+      mode: u+x
+
+  - name: Prevent local changes to push to the server, config
+    git_config:
+      name: init.templatedir
+      scope: global
+      value: $HOME/.git_template/hooks
+
+

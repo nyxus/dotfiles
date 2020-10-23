@@ -183,6 +183,16 @@ let g:ycm_filter_diagnostics = {
 au BufNewFile,BufRead *.bb setlocal ft=bitbake
 au BufNewFile,BufRead *.bbappend setlocal ft=bitbake
 
+" Remove trailing spaces on save
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    keepp %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 " Theme settings
 syntax enable
 set background=dark
@@ -196,3 +206,10 @@ let g:spell_under='solarized'
 ":silent! colorscheme pyte
 ":silent! colorscheme solarized
 colorscheme solarized
+
+" Show trailing white spaces
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
